@@ -12,8 +12,8 @@ new Vue ({
                 desc: 'Player hits monster'
             }
         ],
-        yourHealth: 80,
-        monsterHealth: 80
+        yourHealth: 100,
+        monsterHealth: 100
     },
     computed: {},
     methods: {},
