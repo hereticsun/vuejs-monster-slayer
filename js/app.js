@@ -62,12 +62,14 @@ new Vue ({
         monsterHealth: function(monsterHealth) {
             var vm = this;
             if(vm.monsterHealth <= 0) {
+                this.play = false;
                 alert('You slayed the monster!');
             }
         },
         yourHealth: function(yourHealth) {
             var vm = this;
             if(vm.yourHealth <= 0) {
+                this.play = false;
                 alert('Game over. You died!');
             }
         }
