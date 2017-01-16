@@ -2,12 +2,10 @@ new Vue ({
     el: '#app',
     data: {
         play: false,
-        actions: [
-        ],
+        actions: [],
         yourHealth: 100,
         monsterHealth: 100
     },
-    computed: {},
     methods: {
         startGame: function() {
             this.play = true;
