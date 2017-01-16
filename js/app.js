@@ -16,8 +16,11 @@ new Vue ({
         quitGame: function() {
             this.play = false;
         },
+        calcDamage: function(max) {
+            return dmg = Math.floor(Math.random() * max) + 1;
+        },
         monsterTurn: function() {
-            var dmg = Math.floor(Math.random() * 10) + 1;
+            var dmg = this.calcDamage(10);
             this.yourHealth -= dmg;
             var action = {
                 class: 'monster-turn',
@@ -26,7 +29,7 @@ new Vue ({
             this.actions.unshift(action);
         },
         attack: function() {
-            var dmg = Math.floor(Math.random() * 10) + 1;
+            var dmg = this.calcDamage(10);
             this.monsterHealth -= dmg;
             var action = {
                 class: 'player-turn',
@@ -36,7 +39,7 @@ new Vue ({
             this.monsterTurn();
         },
         spAttack: function() {
-            var dmg = Math.floor(Math.random() * 20) + 1;
+            var dmg = this.calcDamage(20);
             this.monsterHealth -= dmg;
             var action = {
                 class: 'player-turn',
