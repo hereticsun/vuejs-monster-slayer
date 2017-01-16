@@ -49,11 +49,16 @@ new Vue ({
             this.monsterTurn();
         },
         heal: function() {
-            var dmg = 10;
-            this.yourHealth += dmg;
+            if(this.yourHealth <= 90) {
+                var dmg = 10;
+                this.yourHealth += dmg;
+            } else {
+                this.yourHealth = 100;
+            }
+
             var action = {
                 class: 'player-turn',
-                desc: 'Player heals himself for ' + dmg
+                desc: 'Player heals himself for 10'
             };
             this.actions.unshift(action);
             this.monsterTurn();
