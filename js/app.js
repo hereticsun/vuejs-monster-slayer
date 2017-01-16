@@ -32,6 +32,12 @@ new Vue ({
         }
     },
     watch: {
+        monsterHealth: function(monsterHealth) {
+            var vm = this;
+            if(vm.monsterHealth <= 0) {
+                alert('You slayed the monster!');
+            }
+        },
         yourHealth: function(yourHealth) {
             var vm = this;
             if(vm.yourHealth <= 0) {
