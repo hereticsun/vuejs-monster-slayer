@@ -25,7 +25,7 @@ new Vue ({
                 class: 'monster-turn',
                 desc: 'Monster hits player for ' + dmg
             };
-            this.actions.push(action);
+            this.actions.unshift(action);
         },
         attack: function() {
             var dmg = Math.floor(Math.random() * 10) + 1;
@@ -34,7 +34,7 @@ new Vue ({
                 class: 'player-turn',
                 desc: 'Player hits monster for ' + dmg
             };
-            this.actions.push(action);
+            this.actions.unshift(action);
             this.monsterTurn();
         },
         spAttack: function() {
@@ -44,7 +44,7 @@ new Vue ({
                 class: 'player-turn',
                 desc: 'Player hits monster for ' + dmg
             };
-            this.actions.push(action);
+            this.actions.unshift(action);
             this.monsterTurn();
         },
         heal: function() {
@@ -54,7 +54,7 @@ new Vue ({
                 class: 'player-turn',
                 desc: 'Player heals himself for ' + dmg
             };
-            this.actions.push(action);
+            this.actions.unshift(action);
             this.monsterTurn();
         },
     },
