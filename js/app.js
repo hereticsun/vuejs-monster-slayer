@@ -37,8 +37,18 @@ new Vue ({
             this.actions.push(action);
             this.monsterTurn();
         },
+        spAttack: function() {
+            var dmg = Math.floor(Math.random() * 20) + 1;
+            this.monsterHealth -= dmg;
+            var action = {
+                class: 'player-turn',
+                desc: 'Player hits monster for ' + dmg
+            };
+            this.actions.push(action);
+            this.monsterTurn();
+        },
         heal: function() {
-            var dmg = Math.floor(Math.random() * 10) + 1;
+            var dmg = 10;
             this.yourHealth += dmg;
             var action = {
                 class: 'player-turn',
