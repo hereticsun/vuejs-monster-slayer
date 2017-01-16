@@ -7,7 +7,10 @@ new Vue ({
         yourHealth: 100,
         monsterHealth: 100
     },
-    computed: {},
+    computed: {
+        lose: function() {
+        }
+    },
     methods: {
         startGame: function() {
             this.play = true;
@@ -25,12 +28,15 @@ new Vue ({
                 class: 'monster-turn',
                 desc: 'Monster hits player for ' + dmg
             };
-/*
-            action.class = 'monster-turn';
-            action.desc = 'Monster hits player for ' + dmg;
-*/
             this.actions.push(action);
         }
     },
-    watch: {}
+    watch: {
+        yourHealth: function(yourHealth) {
+            var vm = this;
+            if(vm.yourHealth <= 0) {
+                alert('Game over. You died!');
+            }
+        }
+    }
 });
