@@ -7,10 +7,7 @@ new Vue ({
         yourHealth: 100,
         monsterHealth: 100
     },
-    computed: {
-        lose: function() {
-        }
-    },
+    computed: {},
     methods: {
         startGame: function() {
             this.play = true;
@@ -29,7 +26,27 @@ new Vue ({
                 desc: 'Monster hits player for ' + dmg
             };
             this.actions.push(action);
-        }
+        },
+        attack: function() {
+            var dmg = Math.floor(Math.random() * 10) + 1;
+            this.monsterHealth -= dmg;
+            var action = {
+                class: 'player-turn',
+                desc: 'Player hits monster for ' + dmg
+            };
+            this.actions.push(action);
+            this.monsterTurn();
+        },
+        heal: function() {
+            var dmg = Math.floor(Math.random() * 10) + 1;
+            this.yourHealth += dmg;
+            var action = {
+                class: 'player-turn',
+                desc: 'Player heals himself for ' + dmg
+            };
+            this.actions.push(action);
+            this.monsterTurn();
+        },
     },
     watch: {
         monsterHealth: function(monsterHealth) {
